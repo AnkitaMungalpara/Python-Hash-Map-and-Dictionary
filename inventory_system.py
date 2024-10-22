@@ -17,9 +17,14 @@ def update_inventory(inventory, category, item_name, update_info):
     """
     Update item information (e.g., increasing stock, updating price) in the inventory.
     """
-    item=inventory[category]
-    item_info_dict  = item[item_name]
-    inventory[category][item_name] = item_info_dict | update_info
+    
+    if category in inventory and item_name in inventory[category]:
+        inventory[category][item_name].update(update_info)
+    else:
+        # If the item doesn't exist, you can add it
+        if category not in inventory:
+            inventory[category] = {}
+        inventory[category][item_name] = update_info
     
 
 
