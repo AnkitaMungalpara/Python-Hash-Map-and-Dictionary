@@ -2,7 +2,7 @@ name: Python application
 
 on:
   push:
-    branches: [ sets-dictionary ]
+    branches: [ main ]
 
 jobs:
   build:
